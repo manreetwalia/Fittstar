@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Fittstar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="exercise">My Exercises</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="dashboard">Dashboard</a>
+          </li>
+       
+      </ul>
+    </div>
+  </nav>
+<h1>exercise page</h1>
+
+
+<ul class="exercises"> 
+    <h3>Your Exercise Collection: </h3>
+    <% for(var i= 0; i<exercises.length; i++) { %>
+     <li class="note">
+         <span><%= exercises[i].name %></span>
+         <span><%= exercises[i].duration %></span>
+         <a href="/delete/<%= exercises[i]._id %>">Delete</a> 
+     </li>
+<% } %>
+
+</ul>
+
+<h2>
+   Add your exercises
+</h2><br><br>
+
+<form action="/exercise" method="POST">
+    Exercise Name: <input type="text" name="name"><br><br>
+    Exercise Duration: <input type="number" name="duration"><br><br>
+    <button type="submit">Enter</button>
+
+</form>
